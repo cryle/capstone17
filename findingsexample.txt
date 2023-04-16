@@ -1,0 +1,130 @@
+Chief Complaint: A 40-year-old male presents with a sore throat and difficulty swallowing.
+Physical Examination:
+Blood Pressure: 120/80 mmHg
+Respiratory Rate: 18 breaths per minute
+Capillary Refill: Normal
+Temperature: 37.5°C (99.5°F)
+Weight: 80 kg (176 lbs)
+Pulse Rate: 80 beats per minute
+Diagnosis: Pharyngitis.
+Treatment/Medication: The patient is prescribed antibiotics and advised to rest and increase fluid intake.
+
+
+Chief Complaint: A 55-year-old female presents with a cough and fever.
+Physical Examination:
+Blood Pressure: 130/90 mmHg
+Respiratory Rate: 20 breaths per minute
+Capillary Refill: Normal
+Temperature: 38°C (100.4°F)
+Weight: 65 kg (143 lbs)
+Pulse Rate: 90 beats per minute
+Diagnosis: Acute bronchitis.
+Treatment/Medication: The patient is prescribed antibiotics and advised to rest and increase fluid intake.
+
+
+Chief Complaint: A 30-year-old female presents with a rash on her arms and legs.
+Physical Examination:
+Blood Pressure: 120/80 mmHg
+Respiratory Rate: 18 breaths per minute
+Capillary Refill: Normal
+Temperature: 37°C (98.6°F)
+Weight: 60 kg (132 lbs)
+Pulse Rate: 80 beats per minute
+Diagnosis: Contact dermatitis.
+Treatment/Medication: The patient is advised to avoid the allergen and apply corticosteroid cream.
+
+
+Chief Complaint: A 50-year-old male presents with back pain.
+Physical Examination:
+Blood Pressure: 130/90 mmHg
+Respiratory Rate: 20 breaths per minute
+Capillary Refill: Normal
+Temperature: 37°C (98.6°F)
+Weight: 85 kg (187 lbs)
+Pulse Rate: 80 beats per minute
+Diagnosis: Lumbar strain.
+Treatment/Medication: The patient is advised to rest, use heat or ice therapy, and take non-steroidal anti-inflammatory drugs (NSAIDs) for pain relief.
+
+
+Chief Complaint: A 35-year-old female presents with nausea and vomiting.
+Physical Examination:
+Blood Pressure: 110/70 mmHg
+Respiratory Rate: 16 breaths per minute
+Capillary Refill: Normal
+Temperature: 37°C (98.6°F)
+Weight: 55 kg (121 lbs)
+Pulse Rate: 90 beats per minute
+Diagnosis: Gastroenteritis.
+Treatment/Medication: The patient is advised to rest, increase fluid intake, and take antiemetic medication.
+
+
+Chief Complaint: A 60-year-old male presents with chest pain.
+Physical Examination:
+Blood Pressure: 150/90 mmHg
+Respiratory Rate: 20 breaths per minute
+Capillary Refill: Normal
+Temperature: 37°C (98.6°F)
+Weight: 70 kg (154 lbs)
+Pulse Rate: 100 beats per minute
+Diagnosis: Acute coronary syndrome.
+Treatment/Medication: The patient is referred to the hospital for further evaluation and management.
+
+
+Chief Complaint: A 45-year-old male presents with a fever and chills.
+Physical Examination:
+Blood Pressure: 140/90 mmHg
+Respiratory Rate: 20 breaths per minute
+Capillary Refill: Normal
+Temperature: 39°C (102.2°F)
+Weight: 75 kg (165 lbs)
+Pulse Rate: 100 beats per minute
+Diagnosis: Influenza.
+Treatment/Medication: The patient is advised to rest, increase fluid intake, and take antipyretics for fever and pain relief.
+
+
+Chief Complaint: A 30-year-old female presents with joint pain.
+Physical Examination:
+Blood Pressure: 120/80 mmHg
+Respiratory Rate: 18 breaths per minute
+Capillary Refill: Normal
+Temperature: 37°C (98.6°F)
+Weight: 60 kg (132 lbs)
+Pulse Rate: 80 beats per minute
+Diagnosis: Rheumatoid arthritis.
+Treatment/Medication: The patient is referred to a rheumatologist for further evaluation and management.
+
+
+Chief Complaint: A 50-year-old male presents with constipation.
+Physical Examination:
+Blood Pressure: 130/90 mmHg
+Respiratory Rate: 18 breaths per minute
+Capillary Refill: Normal
+Temperature: 37°C (98.6°F)
+Weight: 80 kg (176 lbs)
+Pulse Rate: 80 beats per minute
+Diagnosis: Constipation.
+Treatment/Medication: The patient is advised to increase fiber intake, drink plenty of water, and take stool softeners or laxatives if needed.
+
+
+Chief Complaint: A 25-year-old female presents with fatigue and weight gain.
+Physical Examination:
+Blood Pressure: 120/80 mmHg
+Respiratory Rate: 18 breaths per minute
+Capillary Refill: Normal
+Temperature: 37°C (98.6°F)
+Weight: 70 kg (154 lbs)
+Pulse Rate: 80 beats per minute
+Diagnosis: Hypothyroidism.
+Treatment/Medication: The patient is prescribed thyroid hormone replacement therapy and advised to follow up with regular blood tests.
+
+
+Chief Complaint: A 40-year-old male presents with a skin abscess.
+Physical Examination:
+Blood Pressure: 130/80 mmHg
+Respiratory Rate: 18 breaths per minute
+Capillary Refill: Normal
+Temperature: 37.5°C (99.5°F)
+Weight: 85 kg (187 lbs)
+Pulse Rate: 90 beats per minute
+Diagnosis: Skin abscess.
+Treatment/Medication: The patient is prescribed antibiotics and advised to keep the affected area clean and dry.
