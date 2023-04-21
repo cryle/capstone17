@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 
   if ($conn->query($sql) === TRUE) {
     echo "Added Findings successfully";
-    header("Location: ./patientrecords.php");
+    header("Location: ./viewpatient.php?id=$p_id_no");
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

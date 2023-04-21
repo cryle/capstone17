@@ -76,6 +76,9 @@ include "../auth/conn.php";
       </div>
       <div class="child content">
         <div class="report-container">
+          <div class="report-header">
+             <h1>Reports</h1>
+          </div>
           <div class="report-form">
             <div class="print-button">
               <button onclick="printDiv()">Print</button>
@@ -83,7 +86,7 @@ include "../auth/conn.php";
 
             <form class="search-id" action="" method="GET">
               <input type="text" value="<?php echo isset($_GET['id_no']) ? $_GET['id_no'] : "";
-                                        ?>" placeholder="Enter Student School ID" required name="id_no">
+                                        ?>" placeholder="Enter Student School ID" name="id_no">
               <button type="submit">Search</button>
               <div class="filter-div">
                 <label for="">From Date</label>
@@ -173,9 +176,67 @@ include "../auth/conn.php";
                       </div>
                     </div>
 
-              <?php
+                    <?php
                   } else {
                     echo "No patient found in that ID";
+                  }
+                } else if (empty($_GET['id_no'])) {
+                  $sql = "SELECT * FROM findings ORDER BY f_date DESC";
+                  $result = $conn->query($sql);
+
+                  if ($result->num_rows > 0) {
+                    echo '<h3 class="findings-header">Findings</h3>';
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                      <div class="report-patient-details findings">
+                        <div class="patient-details">
+                          <h6>DATE:</h6>
+                          <h5><?php echo $row['f_date'] ?></h5>
+                          <div class="details-container">
+                            <div class="box">
+                              <p class="title">Chief Complaint: </p>
+                              <p class="title-value"><?php echo $row['f_chief_complaint'] ?></p>
+                            </div>
+                            <div class="box">
+                              <p class="title">Physical Exam: </p>
+                              <p class="title-value"><?php echo $row['f_physical_exam'] ?></p>
+                            </div>
+                            <div class="box">
+                              <p class="title">Diagnosis: </p>
+                              <p class="title-value"><?php echo $row['f_diagnosis'] ?></p>
+                            </div>
+                            <div class="box">
+                              <p class="title">TREATMENT/MEDICATION: </p>
+                              <p class="title-value"><?php echo $row['f_med'] ?></p>
+                            </div>
+                          </div>
+                          <h4>Vital Signs</h4>
+                          <div class="details-container">
+                            <div class="box-2">
+                              <p class="title">Blood Pressure: </p>
+                              <p class="title-value"><?php echo $row['f_bp'] ?></p>
+                            </div>
+                            <div class="box-2">
+                              <p class="title">RESPIRATORY RATE: </p>
+                              <p class="title-value"><?php echo $row['f_rr'] ?></p>
+                            </div>
+                            <div class="box-2">
+                              <p class="title">TEMPERATURE: </p>
+                              <p class="title-value"><?php echo $row['f_temp'] ?></p>
+                            </div>
+                            <div class="box-2">
+                              <p class="title">WEIGHT: </p>
+                              <p class="title-value"><?php echo $row['f_wt'] ?></p>
+                            </div>
+                            <div class="box-2">
+                              <p class="title">PULSE RATE: </p>
+                              <p class="title-value"><?php echo $row['f_pr'] ?></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+              <?php
+                    }
                   }
                 }
               }
@@ -199,42 +260,42 @@ include "../auth/conn.php";
                       <div class="patient-details">
                         <h5><?php echo $row['f_date'] ?></h5>
                         <div class="details-container">
-                          <div>
+                          <div class="box">
                             <p class="title">Chief Complaint: </p>
                             <p class="title-value"><?php echo $row['f_chief_complaint'] ?></p>
                           </div>
-                          <div>
+                          <div class="box">
                             <p class="title">Physical Exam: </p>
                             <p class="title-value"><?php echo $row['f_physical_exam'] ?></p>
                           </div>
-                          <div>
+                          <div class="box">
                             <p class="title">Diagnosis: </p>
                             <p class="title-value"><?php echo $row['f_diagnosis'] ?></p>
                           </div>
-                          <div>
+                          <div class="box">
                             <p class="title">TREATMENT/MEDICATION: </p>
                             <p class="title-value"><?php echo $row['f_med'] ?></p>
                           </div>
                         </div>
                         <h4>Vital Signs</h4>
                         <div class="details-container">
-                          <div>
+                          <div class="box-2">
                             <p class="title">Blood Pressure: </p>
                             <p class="title-value"><?php echo $row['f_bp'] ?></p>
                           </div>
-                          <div>
+                          <div class="box-2">
                             <p class="title">RESPIRATORY RATE: </p>
                             <p class="title-value"><?php echo $row['f_rr'] ?></p>
                           </div>
-                          <div>
+                          <div class="box-2">
                             <p class="title">TEMPERATURE: </p>
                             <p class="title-value"><?php echo $row['f_temp'] ?></p>
                           </div>
-                          <div>
+                          <div class="box-2">
                             <p class="title">WEIGHT: </p>
                             <p class="title-value"><?php echo $row['f_wt'] ?></p>
                           </div>
-                          <div>
+                          <div class="box-2">
                             <p class="title">PULSE RATE: </p>
                             <p class="title-value"><?php echo $row['f_pr'] ?></p>
                           </div>
@@ -256,42 +317,100 @@ include "../auth/conn.php";
                           <h6>DATE:</h6>
                           <h5><?php echo $row['f_date'] ?></h5>
                           <div class="details-container">
-                            <div>
+                            <div class="box">
                               <p class="title">Chief Complaint: </p>
                               <p class="title-value"><?php echo $row['f_chief_complaint'] ?></p>
                             </div>
-                            <div>
+                            <div class="box">
                               <p class="title">Physical Exam: </p>
                               <p class="title-value"><?php echo $row['f_physical_exam'] ?></p>
                             </div>
-                            <div>
+                            <div class="box">
                               <p class="title">Diagnosis: </p>
                               <p class="title-value"><?php echo $row['f_diagnosis'] ?></p>
                             </div>
-                            <div>
+                            <div class="box">
                               <p class="title">TREATMENT/MEDICATION: </p>
                               <p class="title-value"><?php echo $row['f_med'] ?></p>
                             </div>
                           </div>
                           <h4>Vital Signs</h4>
                           <div class="details-container">
-                            <div>
+                            <div class="box-2">
                               <p class="title">Blood Pressure: </p>
                               <p class="title-value"><?php echo $row['f_bp'] ?></p>
                             </div>
-                            <div>
+                            <div class="box-2">
                               <p class="title">RESPIRATORY RATE: </p>
                               <p class="title-value"><?php echo $row['f_rr'] ?></p>
                             </div>
-                            <div>
+                            <div class="box-2">
                               <p class="title">TEMPERATURE: </p>
                               <p class="title-value"><?php echo $row['f_temp'] ?></p>
                             </div>
-                            <div>
+                            <div class="box-2">
                               <p class="title">WEIGHT: </p>
                               <p class="title-value"><?php echo $row['f_wt'] ?></p>
                             </div>
-                            <div>
+                            <div class="box-2">
+                              <p class="title">PULSE RATE: </p>
+                              <p class="title-value"><?php echo $row['f_pr'] ?></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <?php
+                    }
+                  }
+                } else if (empty(($_GET['id_no']))) {
+                  $sql = "SELECT * FROM findings ORDER BY f_date ASC";
+                  $result = $conn->query($sql);
+
+                  if ($result->num_rows > 0) {
+                    echo '<h3 class="findings-header">Findings</h3>';
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                      <div class="report-patient-details findings">
+                        <div class="patient-details">
+                          <h6>DATE:</h6>
+                          <h5><?php echo $row['f_date'] ?></h5>
+                          <div class="details-container">
+                            <div class="box">
+                              <p class="title">Chief Complaint: </p>
+                              <p class="title-value"><?php echo $row['f_chief_complaint'] ?></p>
+                            </div>
+                            <div class="box">
+                              <p class="title">Physical Exam: </p>
+                              <p class="title-value"><?php echo $row['f_physical_exam'] ?></p>
+                            </div>
+                            <div class="box">
+                              <p class="title">Diagnosis: </p>
+                              <p class="title-value"><?php echo $row['f_diagnosis'] ?></p>
+                            </div>
+                            <div class="box">
+                              <p class="title">TREATMENT/MEDICATION: </p>
+                              <p class="title-value"><?php echo $row['f_med'] ?></p>
+                            </div>
+                          </div>
+                          <h4>Vital Signs</h4>
+                          <div class="details-container">
+                            <div class="box">
+                              <p class="title">Blood Pressure: </p>
+                              <p class="title-value"><?php echo $row['f_bp'] ?></p>
+                            </div>
+                            <div class="box">
+                              <p class="title">RESPIRATORY RATE: </p>
+                              <p class="title-value"><?php echo $row['f_rr'] ?></p>
+                            </div>
+                            <div class="box">
+                              <p class="title">TEMPERATURE: </p>
+                              <p class="title-value"><?php echo $row['f_temp'] ?></p>
+                            </div>
+                            <div class="box">
+                              <p class="title">WEIGHT: </p>
+                              <p class="title-value"><?php echo $row['f_wt'] ?></p>
+                            </div>
+                            <div class="box">
                               <p class="title">PULSE RATE: </p>
                               <p class="title-value"><?php echo $row['f_pr'] ?></p>
                             </div>
@@ -300,13 +419,6 @@ include "../auth/conn.php";
                       </div>
               <?php
                     }
-                  }
-                } else {
-                  $sql = "SELECT * FROM findings WHERE p_id_no = '$id_no' ORDER BY f_date DESC";
-                  $result = $conn->query($sql);
-
-                  if ($result->num_rows > 0) {
-                    echo 'No data found';
                   }
                 }
               }

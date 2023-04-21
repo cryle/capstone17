@@ -174,6 +174,7 @@ include "../auth/conn.php";
                                  <tr>
                                     <th>History of Present Illness</th>
                                     <th>Date Consulted</th>
+                                    <th>Actions</th>
                                  </tr>
                               </thead>
                               <tbody>
@@ -188,16 +189,18 @@ include "../auth/conn.php";
                                        while ($row = $result->fetch_assoc()) {
                                           $p_id_no = $row['p_id_no'];
                                           $f_id = $row['f_id'];
+                                          $_SESSION['f_id'] = $row['f_id'];
                                           $pr_findings_id = $row['pr_findings_id'];
                                           $f_diagnosis = $row['f_diagnosis'];
                                           $f_date = $row['f_date'];
 
                                           echo '
-            <tr>
-    <td><a href="viewfindings.php?f_id=' . $f_id . '&id_no=' . $id_no . '">' . $f_diagnosis . '</a></td>
-    <td>' . $f_date . '</td>
-  </tr>
-     ';
+                                                <tr>
+                                                   <td><a href="viewfindings.php?f_id=' . $f_id . '&id_no=' . $id_no . '">' . $f_diagnosis . '</a></td>
+                                                   <td>' . $f_date . '</td>
+                                                   <td><a href="delete.php?f_id=' . $f_id . '&id_no=' . $id_no . '">Delete</a></td>
+                                                </tr>
+                                                ';
                                        }
                                     }
                                  }

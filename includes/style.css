@@ -127,7 +127,12 @@ a:is(:link, :active, :visited).active {
   bottom: 50px;
   width: 80%;
 }
-
+.report-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
 .header {
   background: #00111c;
   position: absolute;
@@ -901,6 +906,22 @@ form.search-id {
 }
 .viewfindings {
   overflow-y: visible;
+}
+.box {
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+.box p {
+  word-wrap: break-word;
+}
+.box-2 {
+  width: 250px;
+  height: auto;
+  padding: 10px;
+}
+.box-2 p {
+  word-wrap: break-word;
 }
 /* PRINTABLE */
 @media print {

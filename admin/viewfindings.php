@@ -157,6 +157,8 @@ include "../auth/conn.php";
 
               if (isset($_GET['f_id'])) {
                 $f_id = $_GET['f_id'];
+                $id_no = $_GET['id_no'];
+
 
                 $sql = "SELECT * FROM findings WHERE f_id = $f_id ";
                 $result = $conn->query($sql);
@@ -167,47 +169,50 @@ include "../auth/conn.php";
                   <div class="report-patient-details findings">
                     <div class="patient-details">
                       <h3>Findings</h3>
+                      <a href="editfindings.php?f_id=<?php echo $f_id ?>&id_no=<?php echo $id_no ?>">Edit</a>
                       <h5><?php echo $row['f_date'] ?></h5>
                       <div class="details-container">
-                        <div>
+                        <div class="box">
                           <p class="title">Chief Complaint: </p>
                           <p class="title-value"><?php echo $row['f_chief_complaint'] ?></p>
                         </div>
-                        <div>
+                        <div class="box">
                           <p class="title">Physical Exam: </p>
                           <p class="title-value"><?php echo $row['f_physical_exam'] ?></p>
                         </div>
-                        <div>
+                        <div class="box">
                           <p class="title">Diagnosis: </p>
                           <p class="title-value"><?php echo $row['f_diagnosis'] ?></p>
                         </div>
-                        <div>
+                        <div class="box">
                           <p class="title">TREATMENT/MEDICATION: </p>
                           <p class="title-value"><?php echo $row['f_med'] ?></p>
                         </div>
                       </div>
                       <h4>Vital Signs</h4>
                       <div class="details-container">
-                        <div>
+                        <div class="box">
                           <p class="title">Blood Pressure: </p>
                           <p class="title-value"><?php echo $row['f_bp'] ?></p>
                         </div>
-                        <div>
+                        <div class="box">
                           <p class="title">RESPIRATORY RATE: </p>
                           <p class="title-value"><?php echo $row['f_rr'] ?></p>
                         </div>
-                        <div>
+                        <div class="box">
                           <p class="title">TEMPERATURE: </p>
                           <p class="title-value"><?php echo $row['f_temp'] ?></p>
                         </div>
-                        <div>
+                        <div class="box">
                           <p class="title">WEIGHT: </p>
                           <p class="title-value"><?php echo $row['f_wt'] ?></p>
                         </div>
-                        <div>
+                        <div class="box">
                           <p class="title">PULSE RATE: </p>
                           <p class="title-value"><?php echo $row['f_pr'] ?></p>
                         </div>
+                      </div>
+                      <div class="details-container">
                       </div>
                     </div>
                   </div>

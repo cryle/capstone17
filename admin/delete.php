@@ -17,6 +17,18 @@ if (isset($_GET['id'])) {
     }
 }
 
+
+if (isset($_GET['f_id'])) {
+    $f_id = $_GET['f_id'];
+    $id_no = $_GET['id_no'];
+
+    $sql = "DELETE FROM findings WHERE f_id = $f_id";
+    if (mysqli_query($conn, $sql)) {
+        echo "Deleted Record";
+        header("Location: ./viewpatient.php?id=$id_no");
+    }
+}
+
 if (isset($_GET['user_id'])) {
     $user_id = $_GET['user_id'];
 
