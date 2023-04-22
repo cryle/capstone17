@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
+if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'nurse') {
     header('Location: ../index.php');
     exit();
 }
@@ -81,12 +81,6 @@ if (isset($_POST['submit'])) {
                                     <span>Reports</span>
                                 </a>
                             </li>
-                            <li class="link-item">
-                                <a href="./userrecords.php" class="link">
-                                    <ion-icon name="person-add-outline"></ion-icon>
-                                    <span>User Management</span>
-                                </a>
-                            </li>
                             <li class="link-item user">
                                 <a href="./logout.php" class="link">
                                     <img src="../public/logo.png" alt="user-icon">
@@ -114,7 +108,7 @@ if (isset($_POST['submit'])) {
                     ?>
                         <form action="" method="POST">
                             <div class="patient-details">
-                                <div class="input-box">
+                                <div class="input-box" >
                                     <span class="form-details">School ID No.</span>
                                     <input value="<?php echo $row['p_id_no'] ?>" type="text" name="p_id_no">
                                 </div>

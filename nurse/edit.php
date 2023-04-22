@@ -62,8 +62,9 @@ if (isset($_POST['edit'])) {
     <div class="main">
       <div class="child">
         <div class="container">
-          <div class="logo">
-          </div>
+          <div class="logo nav-logo">
+                        <img src="../public/logo.png" alt="logo">
+                    </div>
           <nav>
             <ul class="link-items ">
               <li class="link-item ">
@@ -79,13 +80,13 @@ if (isset($_POST['edit'])) {
               </li>
               <li class="link-item">
                 <a href="./reports.php" class="link">
-                  <ion-icon name="person-add-outline"></ion-icon>
+                  <ion-icon name="document-text-outline"></ion-icon>
                   <span>Reports</span>
                 </a>
               </li>
               <li class="link-item user">
                 <a href="./logout.php" class="link">
-                  <img src="../public/winter.jpg" alt="user-icon">
+                  <img src="../public/logo.png" alt="user-icon">
                   <span>
                     <h4><?= $_SESSION['username'] ?></h4>
                     <p><?= $_SESSION['role'] ?></p>

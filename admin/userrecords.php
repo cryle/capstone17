@@ -34,9 +34,9 @@ $result = mysqli_query($conn, $sql);
           <a class="createuser" href="./adduser.php">Create User</a>
       <div class="child">
         <div class="container">
-          <div class="logo">
-            <!-- LOGO -->
-          </div>
+          <div class="logo nav-logo">
+                        <img src="../public/logo.png" alt="logo">
+                    </div>
           <nav>
             <ul class="link-items">
               <li class="link-item">
@@ -53,7 +53,7 @@ $result = mysqli_query($conn, $sql);
               </li>
               <li class="link-item">
                 <a href="./reports.php" class="link">
-                  <ion-icon name="person-add-outline"></ion-icon>
+                  <ion-icon name="document-text-outline"></ion-icon>
                   <span>Reports</span>
                 </a>
               </li>
@@ -65,7 +65,7 @@ $result = mysqli_query($conn, $sql);
               </li>
               <li class="link-item user">
                 <a href="./logout.php" class="link">
-                  <img src="../public/winter.jpg" alt="user-icon">
+                  <img src="../public/logo.png" alt="user-icon">
                   <span style="--i: 9">
                     <h4>
                       <?= $_SESSION['username'] ?>

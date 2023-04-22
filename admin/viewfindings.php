@@ -26,9 +26,9 @@ include "../auth/conn.php";
     <div class="main">
       <div class="child">
         <div class="container">
-          <div class="logo">
-            <!-- ADD LOGO -->
-          </div>
+          <div class="logo nav-logo">
+                        <img src="../public/logo.png" alt="logo">
+                    </div>
           <nav>
             <ul class="link-items">
               <li class="link-item">
@@ -45,19 +45,19 @@ include "../auth/conn.php";
               </li>
               <li class="link-item">
                 <a href="./reports.php" class="link">
-                  <ion-icon name="person-add-outline"></ion-icon>
+                  <ion-icon name="document-text-outline"></ion-icon>
                   <span>Reports</span>
                 </a>
               </li>
               <li class="link-item">
-                <a href="./userrecords.php" class="link">
-                  <ion-icon name="person-add-outline"></ion-icon>
-                  <span>User Management</span>
-                </a>
-              </li>
+                        <a href="./userrecords.php" class="link">
+                           <ion-icon name="person-add-outline"></ion-icon>
+                           <span>User Management</span>
+                        </a>
+                     </li>
               <li class="link-item user">
                 <a href="./logout.php" class="link">
-                  <img src="../public/winter.jpg" alt="user-icon">
+                  <img src="../public/logo.png" alt="user-icon">
                   <span>
                     <h4><?= $_SESSION['username'] ?></h4>
                     <p><?= $_SESSION['role'] ?></p>
@@ -87,7 +87,12 @@ include "../auth/conn.php";
 
               ?>
                 <div class="report-patient-details findings-margin">
-                  <h3>Patient Details</h3>
+                  <div class="edit-findings">
+                      <h3>Patient Details</h3>
+                      <div class="edit-link">
+                        <a href="edit.php?id=<?php echo $id_no ?>">Edit</a>
+                      </div>
+                      </div>
                   <div class="patient-details">
                     <div class="details-container">
                       <div>
@@ -168,8 +173,12 @@ include "../auth/conn.php";
                 <div class="findings-page">
                   <div class="report-patient-details findings">
                     <div class="patient-details">
+                      <div class="edit-findings">
                       <h3>Findings</h3>
-                      <a href="editfindings.php?f_id=<?php echo $f_id ?>&id_no=<?php echo $id_no ?>">Edit</a>
+                      <div class="edit-link">
+                        <a href="editfindings.php?f_id=<?php echo $f_id ?>&id_no=<?php echo $id_no ?>">Edit</a>
+                      </div>
+                      </div>
                       <h5><?php echo $row['f_date'] ?></h5>
                       <div class="details-container">
                         <div class="box">
@@ -191,23 +200,23 @@ include "../auth/conn.php";
                       </div>
                       <h4>Vital Signs</h4>
                       <div class="details-container">
-                        <div class="box">
+                        <div class="box-2">
                           <p class="title">Blood Pressure: </p>
                           <p class="title-value"><?php echo $row['f_bp'] ?></p>
                         </div>
-                        <div class="box">
+                        <div class="box-2">
                           <p class="title">RESPIRATORY RATE: </p>
                           <p class="title-value"><?php echo $row['f_rr'] ?></p>
                         </div>
-                        <div class="box">
+                        <div class="box-2">
                           <p class="title">TEMPERATURE: </p>
                           <p class="title-value"><?php echo $row['f_temp'] ?></p>
                         </div>
-                        <div class="box">
+                        <div class="box-2">
                           <p class="title">WEIGHT: </p>
                           <p class="title-value"><?php echo $row['f_wt'] ?></p>
                         </div>
-                        <div class="box">
+                        <div class="box-2">
                           <p class="title">PULSE RATE: </p>
                           <p class="title-value"><?php echo $row['f_pr'] ?></p>
                         </div>

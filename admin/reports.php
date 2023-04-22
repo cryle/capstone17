@@ -28,9 +28,9 @@ include "../auth/conn.php";
     <div class="main">
       <div class="child print-hidden">
         <div class="container">
-          <div class="logo">
-            <!-- ADD LOGO -->
-          </div>
+          <div class="logo nav-logo">
+                        <img src="../public/logo.png" alt="logo">
+                    </div>
           <nav>
             <ul class="link-items">
               <li class="link-item">
@@ -47,19 +47,19 @@ include "../auth/conn.php";
               </li>
               <li class="link-item active">
                 <a href="./reports.php" class="link">
-                  <ion-icon name="person-add-outline"></ion-icon>
+                  <ion-icon name="document-text-outline"></ion-icon>
                   <span>Reports</span>
                 </a>
               </li>
               <li class="link-item">
-                <a href="./userrecords.php" class="link">
-                  <ion-icon name="person-add-outline"></ion-icon>
-                  <span>User Management</span>
-                </a>
-              </li>
+                                <a href="./userrecords.php" class="link">
+                                    <ion-icon name="person-add-outline"></ion-icon>
+                                    <span>User Management</span>
+                                </a>
+                            </li>
               <li class="link-item user">
                 <a href="./logout.php" class="link">
-                  <img src="../public/winter.jpg" alt="user-icon">
+                  <img src="../public/logo.png" alt="user-icon">
                   <span>
                     <h4>
                       <?= $_SESSION['username'] ?>
@@ -77,13 +77,12 @@ include "../auth/conn.php";
       <div class="child content">
         <div class="report-container">
           <div class="report-header">
-             <h1>Reports</h1>
-          </div>
-          <div class="report-form">
             <div class="print-button">
               <button onclick="printDiv()">Print</button>
             </div>
-
+            <h1>Reports</h1>
+          </div>
+          <div class="report-form">
             <form class="search-id" action="" method="GET">
               <input type="text" value="<?php echo isset($_GET['id_no']) ? $_GET['id_no'] : "";
                                         ?>" placeholder="Enter Student School ID" name="id_no">
@@ -95,7 +94,7 @@ include "../auth/conn.php";
                 <label for="">To Date</label>
                 <input type="date" name="to_date" value="<?php echo isset($_GET['to_date']) ? $_GET['to_date'] : "";
                                                           ?>">
-                <input type="submit" name="filter_date" value="Filter">
+                <input class="filter-btn" type="submit" name="filter_date" value="Filter">
               </div>
             </form>
           </div>
@@ -114,7 +113,12 @@ include "../auth/conn.php";
                   if ($row) {
               ?>
                     <div class="report-patient-details">
-                      <h3>Patient Details</h3>
+                      <div class="edit-findings">
+                        <h3>Patient Details</h3>
+                        <div class="edit-link">
+                          <a href="edit.php?id=<?php echo $row['id_no'] ?>">Edit</a>
+                        </div>
+                      </div>
                       <div class="patient-details">
                         <div class="details-container">
                           <div>
@@ -180,7 +184,7 @@ include "../auth/conn.php";
                   } else {
                     echo "No patient found in that ID";
                   }
-                } else if (empty($_GET['id_no'])) {
+                } else if (empty($_GET['id_no']) && empty($_GET['from_date']) && empty($_GET['to_date'])) {
                   $sql = "SELECT * FROM findings ORDER BY f_date DESC";
                   $result = $conn->query($sql);
 
@@ -190,11 +194,16 @@ include "../auth/conn.php";
                     ?>
                       <div class="report-patient-details findings">
                         <div class="patient-details">
-                          <h6>DATE:</h6>
-                          <h5><?php echo $row['f_date'] ?></h5>
+                          <div class="edit-findings">
+                            <h6>DATE:</h6>
+                            <h5><?php echo $row['f_date'] ?></h5>
+                            <div class="edit-link">
+                              <a href="editfindings.php?f_id=<?php echo $row['f_id'] ?>&id_no=<?php echo $row['p_id_no'] ?>">Edit</a>
+                            </div>
+                          </div>
                           <div class="details-container">
                             <div class="box">
-                              <p class="title">Chief Complaint: </p>
+                              <p class="title">Chief lol: </p>
                               <p class="title-value"><?php echo $row['f_chief_complaint'] ?></p>
                             </div>
                             <div class="box">
@@ -248,7 +257,7 @@ include "../auth/conn.php";
                 $to_date = $_GET['to_date'];
                 $id_no = $_GET['id_no'];
 
-                $sql = "SELECT * FROM findings WHERE p_id_no = '$id_no' AND f_date BETWEEN '$from_date' AND '$to_date' ORDER BY f_date ASC";
+                $sql = "SELECT * FROM findings WHERE p_id_no = '$id_no' AND f_date BETWEEN '$from_date' AND '$to_date' ORDER BY f_date DESC";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -258,7 +267,13 @@ include "../auth/conn.php";
               ?>
                     <div class="report-patient-details findings">
                       <div class="patient-details">
-                        <h5><?php echo $row['f_date'] ?></h5>
+                        <div class="edit-findings">
+                          <h6>DATE:</h6>
+                          <h5><?php echo $row['f_date'] ?></h5>
+                          <div class="edit-link">
+                            <a href="editfindings.php?f_id=<?php echo $row['f_id'] ?>&id_no=<?php echo $row['p_id_no'] ?>">Edit</a>
+                          </div>
+                        </div>
                         <div class="details-container">
                           <div class="box">
                             <p class="title">Chief Complaint: </p>
@@ -305,7 +320,7 @@ include "../auth/conn.php";
                     <?php
                   }
                 } else if (empty(($_GET['from_date'])) && empty(($_GET['to_date']))) {
-                  $sql = "SELECT * FROM findings WHERE p_id_no = '$id_no' ORDER BY f_date ASC";
+                  $sql = "SELECT * FROM findings WHERE p_id_no = '$id_no' ORDER BY f_date DESC";
                   $result = $conn->query($sql);
 
                   if ($result->num_rows > 0) {
@@ -314,8 +329,13 @@ include "../auth/conn.php";
                     ?>
                       <div class="report-patient-details findings">
                         <div class="patient-details">
-                          <h6>DATE:</h6>
-                          <h5><?php echo $row['f_date'] ?></h5>
+                          <div class="edit-findings">
+                            <h6>DATE:</h6>
+                            <h5><?php echo $row['f_date'] ?></h5>
+                            <div class="edit-link">
+                              <a href="editfindings.php?f_id=<?php echo $row['f_id'] ?>&id_no=<?php echo $row['p_id_no'] ?>">Edit</a>
+                            </div>
+                          </div>
                           <div class="details-container">
                             <div class="box">
                               <p class="title">Chief Complaint: </p>
@@ -362,8 +382,11 @@ include "../auth/conn.php";
                     <?php
                     }
                   }
-                } else if (empty(($_GET['id_no']))) {
-                  $sql = "SELECT * FROM findings ORDER BY f_date ASC";
+                } else if (empty($_GET['id_no']) && isset($_GET['from_date']) && isset($_GET['to_date'])) {
+                  $from_date = $_GET['from_date'];
+                  $to_date = $_GET['to_date'];
+
+                  $sql = "SELECT * FROM findings WHERE f_date BETWEEN '$from_date' AND '$to_date' ORDER BY f_date DESC";
                   $result = $conn->query($sql);
 
                   if ($result->num_rows > 0) {
@@ -372,11 +395,16 @@ include "../auth/conn.php";
                     ?>
                       <div class="report-patient-details findings">
                         <div class="patient-details">
-                          <h6>DATE:</h6>
-                          <h5><?php echo $row['f_date'] ?></h5>
+                          <div class="edit-findings">
+                            <h6>DATE:</h6>
+                            <h5><?php echo $row['f_date'] ?></h5>
+                            <div class="edit-link">
+                              <a href="editfindings.php?f_id=<?php echo $row['f_id'] ?>&id_no=<?php echo $row['p_id_no'] ?>">Edit</a>
+                            </div>
+                          </div>
                           <div class="details-container">
                             <div class="box">
-                              <p class="title">Chief Complaint: </p>
+                              <p class="title">Chief lol: </p>
                               <p class="title-value"><?php echo $row['f_chief_complaint'] ?></p>
                             </div>
                             <div class="box">
@@ -394,23 +422,23 @@ include "../auth/conn.php";
                           </div>
                           <h4>Vital Signs</h4>
                           <div class="details-container">
-                            <div class="box">
+                            <div class="box-2">
                               <p class="title">Blood Pressure: </p>
                               <p class="title-value"><?php echo $row['f_bp'] ?></p>
                             </div>
-                            <div class="box">
+                            <div class="box-2">
                               <p class="title">RESPIRATORY RATE: </p>
                               <p class="title-value"><?php echo $row['f_rr'] ?></p>
                             </div>
-                            <div class="box">
+                            <div class="box-2">
                               <p class="title">TEMPERATURE: </p>
                               <p class="title-value"><?php echo $row['f_temp'] ?></p>
                             </div>
-                            <div class="box">
+                            <div class="box-2">
                               <p class="title">WEIGHT: </p>
                               <p class="title-value"><?php echo $row['f_wt'] ?></p>
                             </div>
-                            <div class="box">
+                            <div class="box-2">
                               <p class="title">PULSE RATE: </p>
                               <p class="title-value"><?php echo $row['f_pr'] ?></p>
                             </div>

@@ -8,8 +8,8 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'nurse') {
 include "../auth/conn.php";
 
 if (isset($_GET['id'])) {
-  $id = $_GET['id'];
-}
+     $id = $_GET['id'];
+   }
 
 if (isset($_POST['submit'])) {
   $p_id_no = $_POST['p_id_no'];
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 
   if ($conn->query($sql) === TRUE) {
     echo "Added Findings successfully";
-    header("Location: ./patientrecords.php");
+    header("Location: ./viewpatient.php?id=$p_id_no");
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
@@ -51,14 +51,15 @@ if (isset($_POST['submit'])) {
   <div class="parent">
     <div class="child header">
       <span class="header-content">
-        <a href="./logout.php">LOGOUT</a>
-      </span>
+              <a href="./logout.php">LOGOUT</a>
+          </span>
     </div>
     <div class="main">
       <div class="child">
         <div class="container">
-          <div class="logo">
-          </div>
+          <div class="logo nav-logo">
+                        <img src="../public/logo.png" alt="logo">
+                    </div>
           <nav>
             <ul class="link-items">
               <li class="link-item">
@@ -75,13 +76,13 @@ if (isset($_POST['submit'])) {
               </li>
               <li class="link-item">
                 <a href="./reports.php" class="link">
-                  <ion-icon name="person-add-outline"></ion-icon>
+                  <ion-icon name="document-text-outline"></ion-icon>
                   <span>Reports</span>
                 </a>
               </li>
               <li class="link-item user">
                 <a href="./logout.php" class="link">
-                  <img src="../public/winter.jpg" alt="user-icon">
+                  <img src="../public/logo.png" alt="user-icon">
                   <span>
                     <h4><?= $_SESSION['username'] ?></h4>
                     <p><?= $_SESSION['role'] ?></p>
@@ -102,8 +103,8 @@ if (isset($_POST['submit'])) {
                 <input value="<?php echo $id ?>" type="text" name="p_id_no">
               </div>
               <div class="input-box addfindings">
-                <input type="submit" value="Add Patient Findings" name="submit">
-              </div>
+              <input type="submit" value="Add Patient Findings" name="submit">
+            </div>
             </div>
             <div class="patient-details">
               <div class="input-box">
@@ -126,36 +127,36 @@ if (isset($_POST['submit'])) {
             <div class="gender-details">
               <span class="gender-title">VITAL SIGNS</span>
               <div class="patient-details">
-                <div class="input-box">
-                  <span class="form-details">Blood Pressure</span>
-                  <input type="text" name="f_bp" placeholder="BP" required>
-                </div>
-                <div class="input-box">
-                  <span class="form-details">Respiratory Rate</span>
-                  <input type="text" name="f_rr" placeholder="BP" required>
-                </div>
-                <div class="input-box">
-                  <span class="form-details">Capillary Refill</span>
-                  <input type="text" name="f_cr" placeholder="BP" required>
-                </div>
-                <div class="input-box">
-                  <span class="form-details">Temperature</span>
-                  <input type="text" name="f_temp" placeholder="BP" required>
-                </div>
-                <div class="input-box">
-                  <span class="form-details">Weight</span>
-                  <input type="text" name="f_wt" placeholder="BP" required>
-                </div>
-                <div class="input-box">
-                  <span class="form-details">Pulse Rate</span>
-                  <input type="text" name="f_pr" placeholder="BP" required>
-                </div>
+            <div class="input-box">
+                <span class="form-details">Blood Pressure</span>
+                <input type="text" name="f_bp" placeholder="BP" required>
+              </div>
+              <div class="input-box">
+                <span class="form-details">Respiratory Rate</span>
+                <input type="text" name="f_rr" placeholder="BP" required>
+              </div>
+              <div class="input-box">
+                <span class="form-details">Capillary Refill</span>
+                <input type="text" name="f_cr" placeholder="BP" required>
+              </div>
+              <div class="input-box">
+                <span class="form-details">Temperature</span>
+                <input type="text" name="f_temp" placeholder="BP" required>
+              </div>
+              <div class="input-box">
+                <span class="form-details">Weight</span>
+                <input type="text" name="f_wt" placeholder="BP" required>
+              </div>
+              <div class="input-box">
+                <span class="form-details">Pulse Rate</span>
+                <input type="text" name="f_pr" placeholder="BP" required>
               </div>
             </div>
+            </div>
+            </div>
+          </form>
         </div>
-        </form>
       </div>
-    </div>
 
   </div>
 
